@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Obsidian</title>
+  <link rel="icon" href="/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="auth-screen">
+  <div class="auth-box">
+    <img src="icon.png" style="width: 45px;display: flex;margin-left: auto;margin-right: auto;">
+    <h2 style="text-align:center; margin-bottom:15px">Obsidian</h2>
+    <input id="nickname" placeholder="Логин">
+    <input id="password" type="password" placeholder="Пароль">
+    <button onclick="window.handleAuth()">Войти / Регистрация</button>
+    <p id="auth-msg" style="color:#f87171; text-align:center; margin-top:10px; min-height:20px"></p>
+  </div>
+</div>
+
+<div id="app-screen" class="hidden">
+
+  <header id="global-header" class="global-header">
+    <div class="header-left">
+      <button id="menu-btn" class="icon-btn" onclick="window.toggleMenu()">☰</button>
+      <span class="header-title">Obsidian</span>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <!-- Левая панель -->
+    <aside id="list-view" class="view-panel">
+      <div class="search-box">
+        <input id="search-input" placeholder="🔍 Введите логин друга" oninput="window.searchUser()">
+        <div id="search-results" class="search-results"></div>
+      </div>
+      <div id="pending-box" class="pending-box hidden">
+        <div class="pending-header"><strong>📥 Запросы</strong><span id="pending-count"></span></div>
+        <div id="pending-list"></div>
+      </div>
+      <div id="dialogs-list" class="dialogs-list"></div>
+    </aside>
+
+ <!-- Правая панель (Чат) -->
+    <main id="chat-view" class="view-panel">
+      <!-- ШАПКА ДИАЛОГА -->
+      <div id="chat-header" class="chat-header hidden">
+        <button class="btn-back" onclick="window.leaveChat()">←</button>
+        <span id="chat-title-text"></span>
+        <div class="chat-actions">
+		  <button class="action-btn" onclick="window.leaveChat()" title="Закрыть">Закрыть диалог</button>
+          <button class="action-btn" onclick="window.clearMessages()">Очистить переписку</button>
+          <button class="action-btn" onclick="window.removeFriend()">Удалить из друзей</button>
+        </div>
+      </div>
+      
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">
+    <img src="icon.png" style="width: 120px;">
+</div>
+        <p>Выберите диалог, чтобы начать общение</p>
+      </div>
+      <div id="messages" class="messages-container hidden"></div>
+      
+      <div id="new-msg-badge" class="new-msg-badge" onclick="window.scrollToBottom()">
+        <span>Новые сообщения</span>
+        <span id="badge-count"></span>
+      </div>
+      
+      <div class="chat-input hidden" id="chat-input-bar">
+        <input id="msg-input" placeholder="Сообщение..." disabled onkeypress="if(event.key==='Enter') window.sendMessage()">
+        <button id="send-btn" onclick="window.sendMessage()" disabled><p style="top: -2px;position: relative;transform: rotate(-28deg);">➤</p></button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Боковое меню -->
+  <div id="side-menu" class="side-menu">
+    <div class="menu-header">
+    <img src="icon.png" style="width: 45px;display: flex;">
+   <h3>Obsidian</h3>
+      <button class="btn-close-menu" onclick="window.closeMenu()">✕</button>
+    </div>
+	<div class="menu-content">
+<h3 style="display: flex;justify-content: center;">Вы вошли, как <span style="margin-left: 5px;" id="menu-username"></span></h3>
+      <button class="menu-item" onclick="window.logout()">Выйти из аккаунта</button>
+    </div>
+	<p class="note">Мессенджер Obsidian предлагает защищенное общение со сквозным шифрованием. 
+	Сообщения шифруются перед отправкой и расшифровываются непосредственно в диалоге у конечного пользователя. 
+	Сервер не знает, что именно он передает или записывает в базу.<br><br> 
+	Сообщения хранятся в базе в зашифрованном виде и могут быть удалены с помощью кнопки удаления переписки в диалоге у обоих участников. 
+	Сообщения удаляются перманентно, восстановить их никак не получится! <br><br>
+	Вы можете добавить пользователя, зная его логин, и сможете общаться с ним после того, как он добавит вас в друзья. </p>
+	<p class="note" style="text-align: center;">Version: 1.2.2 </p>
+	<p class="note" style="text-align: center;">Copyright (c) SyntaxWEB 2026</p>
+    
+  </div>
+  <div id="overlay" class="overlay" onclick="window.closeMenu()"></div>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
