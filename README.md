@@ -39,13 +39,6 @@ http://localhost:63000
 Сервер не имеет доступа к содержимому сообщений.
 Удалённые сообщения невозможно восстановить.
 
-📂 Структура проекта
-/var/www/html/
-├── server.js        # Главный файл сервера
-├── messenger.db     # SQLite база данных (создается автоматически)
-├── public/          # Статика фронтенда
-└── ...              # Дополнительные файлы и модули
-
 <img width="895" height="639" alt="изображение" src="https://github.com/user-attachments/assets/cf8bfd38-2015-4c29-ba77-25b2ef37951f" />
 <img width="1279" height="645" alt="изображение" src="https://github.com/user-attachments/assets/767efbf5-37a0-43d3-b7cf-2c70f67802d8" />
 
