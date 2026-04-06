@@ -41,5 +41,6 @@ http://localhost:63000
 
 <img width="895" height="639" alt="изображение" src="https://github.com/user-attachments/assets/cf8bfd38-2015-4c29-ba77-25b2ef37951f" />
 <img width="1279" height="645" alt="изображение" src="https://github.com/user-attachments/assets/767efbf5-37a0-43d3-b7cf-2c70f67802d8" />
+<img width="759" height="862" alt="изображение" src="https://github.com/user-attachments/assets/d371a4ae-0668-4bd5-a47c-cedd082a58f7" />
 
 
